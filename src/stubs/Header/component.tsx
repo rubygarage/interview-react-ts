@@ -1,41 +1,41 @@
 import React from 'react'
-import {
-  Typography, Row, Col, Avatar, Dropdown, Menu, Layout
-} from 'antd'
+import { Typography, Row, Col, Avatar, Dropdown, Layout } from 'antd'
 import { CaretDownOutlined, UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
 
-const Overlay = () => (
-  <Menu>
-    <Menu.Item>
-      <Link to="/stubs/dashboard">Dashboard</Link>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item>
-      <Link to="/stubs/lists">My Lists</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/stubs/watchlist">Watchlist</Link>
-    </Menu.Item>
-    <Menu.Item>
-      <Link to="/stubs/favorites">Favorites</Link>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item>Logout</Menu.Item>
-  </Menu>
-)
-
 const Header = () => (
   <Layout.Header>
-    <Row
-      align='stretch'
-      justify="space-between"
-    >
+    <Row align="stretch" justify="space-between">
       <Col>
         <Typography.Text>THE MOVIE DB</Typography.Text>
       </Col>
       <Col>
-        <Dropdown overlay={Overlay}>
+        <Dropdown
+          menu={{
+            items: [
+              {
+                label: <Link to="/stubs/dashboard">Dashboard</Link>,
+                key: 'dashboard',
+              },
+              {
+                label: <Link to="/stubs/lists">My Lists</Link>,
+                key: 'lists',
+              },
+              {
+                label: <Link to="/stubs/watchlist">Watchlist</Link>,
+                key: 'watchlist',
+              },
+              {
+                label: <Link to="/stubs/favorites">Favorites</Link>,
+                key: 'favorites',
+              },
+              {
+                label: "Logout",
+                key: 'logout',
+              },
+            ],
+          }}
+        >
           <Typography.Text>
             <Avatar icon={<UserOutlined />} />
             {' '}
@@ -47,6 +47,6 @@ const Header = () => (
       </Col>
     </Row>
   </Layout.Header>
-)
+);
 
-export default Header
+export default Header;

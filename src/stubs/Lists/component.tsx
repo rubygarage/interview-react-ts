@@ -9,15 +9,15 @@ import Header from '../Header';
 import CreateListModal from '../CreateListModal';
 
 function Lists() {
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const showModal = useCallback(() => {
-    setModalVisible(true);
-  }, [setModalVisible]);
+    setModalOpen(true);
+  }, [setModalOpen]);
 
   const hideModal = useCallback(() => {
-    setModalVisible(false);
-  }, [setModalVisible]);
+    setModalOpen(false);
+  }, [setModalOpen]);
 
 
     return (
@@ -74,7 +74,7 @@ function Lists() {
           </Row>
         </Layout.Content>
         <Modal
-          visible={modalVisible}
+          open={modalOpen}
           onCancel={hideModal}
           okText="Create"
           title="Create list"
